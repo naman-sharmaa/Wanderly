@@ -262,17 +262,43 @@ const AnimationManager = {
    ============================================================ */
 const SmoothScrollManager = {
   init() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    const scrollToHash = (hash, smooth = true) => {
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector(hash);
+      if (!target) return;
+
+      const offset = 80; // navbar height
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({ top, behavior: smooth ? 'smooth' : 'auto' });
+    };
+
+    document.querySelectorAll('a[href^="#"], a[href*="#features"], a[href*="#how-it-works"]').forEach(link => {
       link.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href') || '';
+        const hash = href.includes('#') ? `#${href.split('#').pop()}` : href;
+
+        if (!hash || hash === '#') return;
+
+        const target = document.querySelector(hash);
         if (target) {
           e.preventDefault();
-          const offset = 80; // navbar height
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
+          scrollToHash(hash, true);
+          history.replaceState(null, '', hash);
         }
       });
     });
+
+    // If the page loads with a hash (for example /#features from another page),
+    // animate to the target after the DOM is ready.
+    if (window.location.hash) {
+      const initialHash = window.location.hash;
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      window.requestAnimationFrame(() => {
+        setTimeout(() => scrollToHash(initialHash, true), 60);
+      });
+    }
   }
 };
 
