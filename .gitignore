@@ -1,0 +1,14 @@
+# Laravel
+/vendor
+.env
+.env.*.php
+.env.backup
+.env.*.backup
+.DS_Store
+storage/
+bootstrap/cache/
+node_modules/
+public/hot
+public/storage
+.vscode/
+*.log
