@@ -272,7 +272,7 @@
     </section>
 
     <div class="container" style="padding: 5% 5%;">
-        <section id="about">
+        <section id="features">
             <div class="section-header">
                 <h2>YOUR JOURNEY, PLANNED</h2>
             </div>
@@ -325,7 +325,7 @@
             </div>
         </section>
 
-        <section id="included">
+        <section id="how-it-works">
             <div class="section-header">
                 <h2>WHAT WE HANDLE</h2>
             </div>
