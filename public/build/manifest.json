@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app-DCS-9w2Q.js",
+    "file": "assets/app-Cjia0QGI.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -9,7 +9,7 @@
     ]
   },
   "resources/js/auth-google.js": {
-    "file": "assets/auth-google-B9TGgqKa.js",
+    "file": "assets/auth-google-D9MV3M-7.js",
     "name": "auth-google",
     "src": "resources/js/auth-google.js",
     "isDynamicEntry": true

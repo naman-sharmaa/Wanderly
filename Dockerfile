@@ -76,8 +76,8 @@ RUN mkdir -p storage/logs storage/framework/cache storage/framework/sessions sto
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 
-# Expose port (Render will bind to $PORT)
-EXPOSE 8000
+# Expose the port used by Render
+EXPOSE 10000
 
-# Start PHP built-in server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Start PHP built-in server on Render's assigned port
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]

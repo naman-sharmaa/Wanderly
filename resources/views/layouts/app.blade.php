@@ -24,6 +24,18 @@
             }
         })();
     </script>
+    <script>
+        window.WANDERLY_CONFIG = {
+            firebaseApiKey: @json(env('VITE_FIREBASE_API_KEY', env('FIREBASE_API_KEY'))),
+            firebaseAuthDomain: @json(env('VITE_FIREBASE_AUTH_DOMAIN', env('FIREBASE_AUTH_DOMAIN'))),
+            firebaseProjectId: @json(env('VITE_FIREBASE_PROJECT_ID', env('FIREBASE_PROJECT_ID'))),
+            firebaseStorageBucket: @json(env('VITE_FIREBASE_STORAGE_BUCKET', env('FIREBASE_STORAGE_BUCKET'))),
+            firebaseMessagingSenderId: @json(env('VITE_FIREBASE_MESSAGING_SENDER_ID', env('FIREBASE_MESSAGING_SENDER_ID'))),
+            firebaseAppId: @json(env('VITE_FIREBASE_APP_ID', env('FIREBASE_APP_ID'))),
+            firebaseMeasurementId: @json(env('VITE_FIREBASE_MEASUREMENT_ID', env('FIREBASE_MEASUREMENT_ID'))),
+            firebaseClientId: @json(env('VITE_FIREBASE_CLIENT_ID', env('FIREBASE_CLIENT_ID'))),
+        };
+    </script>
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">

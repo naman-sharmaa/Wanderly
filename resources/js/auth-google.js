@@ -7,6 +7,8 @@
 import { auth } from './firebase.js';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
+const runtimeConfig = window.WANDERLY_CONFIG || {};
+
 export async function initGoogleAuth() {
   const button = document.getElementById('firebaseGoogleButton');
   const status = document.getElementById('firebaseAuthStatus');
@@ -26,13 +28,13 @@ export async function initGoogleAuth() {
 
   // Check if Firebase is properly configured
   if (
-    !import.meta.env.VITE_FIREBASE_API_KEY ||
-    !import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ||
-    !import.meta.env.VITE_FIREBASE_PROJECT_ID ||
-    !import.meta.env.VITE_FIREBASE_APP_ID
+    !(runtimeConfig.firebaseApiKey || import.meta.env.VITE_FIREBASE_API_KEY) ||
+    !(runtimeConfig.firebaseAuthDomain || import.meta.env.VITE_FIREBASE_AUTH_DOMAIN) ||
+    !(runtimeConfig.firebaseProjectId || import.meta.env.VITE_FIREBASE_PROJECT_ID) ||
+    !(runtimeConfig.firebaseAppId || import.meta.env.VITE_FIREBASE_APP_ID)
   ) {
     button.disabled = true;
-    setStatus('Google sign-in is not configured. Add Firebase keys to .env first.', 'error');
+    setStatus('Google sign-in is not configured. Add Firebase keys to Render or .env first.', 'error');
     return;
   }
 
