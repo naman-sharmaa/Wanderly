@@ -16,6 +16,7 @@ RUN apk add --no-cache \
     zip \
     libzip-dev \
     oniguruma-dev \
+    openssl-dev \
     zlib-dev \
     autoconf \
     g++ \
@@ -39,6 +40,8 @@ RUN apk add --no-cache \
     unzip \
     libzip-dev \
     oniguruma-dev \
+    openssl-dev \
+    ca-certificates \
     libpng-dev \
     libjpeg-turbo-dev \
     libwebp-dev \
