@@ -35,10 +35,17 @@ A premium, full-stack **Laravel 11 + MongoDB** travel planning web application w
 composer install
 cp .env.example .env
 php artisan key:generate
-# Configure MongoDB in .env
+# Configure MongoDB and Firebase values in .env
+# Make sure FIREBASE_CLIENT_ID matches your Google web client ID
 php artisan db:seed
 php artisan serve
 ```
+
+## ⚙️ Environment Notes
+
+- MongoDB is configured through `DB_*` values in `.env`.
+- Firebase Google sign-in needs the browser-side `VITE_FIREBASE_*` values and `FIREBASE_CLIENT_ID`.
+- If you are running locally, `php artisan serve --host=127.0.0.1 --port=8001` works with the current setup.
 
 **Demo Login:** `demo@wanderly.app` / `password`
 
